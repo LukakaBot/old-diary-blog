@@ -40,4 +40,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with: 
-          token: ${{ secrets.MONISITE_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
