@@ -1,8 +1,6 @@
-name: Deploy to GitHub Pages
+name: Blog CI
 
 on:
-  # 每次推送到 `main` 分支时触发这个“工作流程”
-  # 如果你使用了别的分支名，请按需将 `main` 替换成你的分支名
   push:
     branches: [ main ]
   # 允许你在 GitHub 上的 Actions 标签中手动触发此“工作流程”
@@ -15,25 +13,34 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  page-build:
+    name: Building pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
           # path: . # 存储库中 Astro 项目的根位置。（可选）
           # node-version: 20 # 用于构建站点的特定 Node.js 版本，默认为 20。（可选）
           package-manager: pnpm@latest # 应使用哪个 Node.js 包管理器来安装依赖项和构建站点。会根据存储库中的 lockfile 自动检测。（可选）
-
-  deploy:
-    needs: build
+    
+  page-generator:
+    name: Generating pages
+    needs: page-build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to website
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          git-config-name: Lukaka
+          git-config-email: monishine_code@163.com
+          token: ${{ secrets.MONISITE_BOT_TOKEN }}
+          clean: true # Automatically remove deleted files from the deploy branch
+          commit-message: update from Blog
