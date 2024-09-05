@@ -32,18 +32,18 @@ jobs:
     name: Generating pages
     needs: page-build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # environment:
+    #   name: github-pages
+    #   url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to website
         id: deployment
-        # uses: JamesIves/github-pages-deploy-action@v4
-        # with: 
-        #   folder: dist
-        #   token: ${{ secrets.GITHUB_TOKEN }}
-        #   repository-name: LukakaBot/lukakabot.github.io
-        #   branch: main
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with: 
+          folder: dist
           token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: LukakaBot/lukakabot.github.io
+          branch: main
+        # uses: actions/deploy-pages@v4
+        # with: 
+        #   token: ${{ secrets.GITHUB_TOKEN }}
