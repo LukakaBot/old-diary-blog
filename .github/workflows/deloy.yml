@@ -59,7 +59,7 @@ jobs:
         with:
           folder: dist # Astro 默认的构建输出目录
           token: ${{ secrets.LUKAKASITE_BOT_TOKEN }}
-          repository-name: LukakaBot/LukakaBot.github.io
+          repository-name: LukakaBot/lukakabot.github.io
           branch: main # 目标仓库的分支名称
           clean: true
           commit-message: update from Blog
