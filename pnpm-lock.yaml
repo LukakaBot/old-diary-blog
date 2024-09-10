@@ -39,8 +39,8 @@ importers:
         specifier: ^5.4.5
         version: 5.5.4
       vite:
-        specifier: ^5.2.8
-        version: 5.3.5(@types/node@22.5.2)
+        specifier: ^5.4.3
+        version: 5.4.3(@types/node@22.5.2)
     devDependencies:
       '@iconify-json/mdi':
         specifier: ^1.1.64
@@ -80,7 +80,7 @@ importers:
         version: 2.13.0
       unocss:
         specifier: ^0.62.3
-        version: 0.62.3(postcss@8.4.40)(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))
+        version: 0.62.3(postcss@8.4.45)(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))
 
 packages:
 
@@ -2284,6 +2284,10 @@ packages:
     resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.4.45:
+    resolution: {integrity: sha512-7KTLTdzdZZYscUc65XmjFiB73vBhBfbPztCYdUNvlaso9PrzjzcmjqBPR0lNGkcVlcO4BjiO5rK/qNz+XAen1Q==}
+    engines: {node: ^10 || ^12 || >=14}
+
   preferred-pm@4.0.0:
     resolution: {integrity: sha512-gYBeFTZLu055D8Vv3cSPox/0iTPtkzxpLroSYYA7WXgRi31WCJ51Uyl8ZiPeUUjyvs2MBzK+S8v9JVUgHU/Sqw==}
     engines: {node: '>=18.12'}
@@ -2692,8 +2696,8 @@ packages:
   vfile@6.0.2:
     resolution: {integrity: sha512-zND7NlS8rJYb/sPqkb13ZvbbUoExdbi4w3SfRrMq6R3FvnLQmmfpajJNITuuYm6AZ5uao9vy4BAos3EXBPf2rg==}
 
-  vite@5.3.5:
-    resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
+  vite@5.4.3:
+    resolution: {integrity: sha512-IH+nl64eq9lJjFqU+/yrRnrHPVTlgy42/+IzbOdaFDVlyLgI/wDlf+FCobXLX1cT0X5+7LMyH1mIy2xJdLfo8Q==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -2701,6 +2705,7 @@ packages:
       less: '*'
       lightningcss: ^1.21.0
       sass: '*'
+      sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
@@ -2712,6 +2717,8 @@ packages:
       lightningcss:
         optional: true
       sass:
+        optional: true
+      sass-embedded:
         optional: true
       stylus:
         optional: true
@@ -3817,13 +3824,13 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@unocss/astro@0.62.3(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))':
+  '@unocss/astro@0.62.3(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))':
     dependencies:
       '@unocss/core': 0.62.3
       '@unocss/reset': 0.62.3
-      '@unocss/vite': 0.62.3(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))
+      '@unocss/vite': 0.62.3(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))
     optionalDependencies:
-      vite: 5.3.5(@types/node@22.5.2)
+      vite: 5.4.3(@types/node@22.5.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -3867,14 +3874,14 @@ snapshots:
       gzip-size: 6.0.0
       sirv: 2.0.4
 
-  '@unocss/postcss@0.62.3(postcss@8.4.40)':
+  '@unocss/postcss@0.62.3(postcss@8.4.45)':
     dependencies:
       '@unocss/config': 0.62.3
       '@unocss/core': 0.62.3
       '@unocss/rule-utils': 0.62.3
       css-tree: 2.3.1
       magic-string: 0.30.11
-      postcss: 8.4.40
+      postcss: 8.4.45
       tinyglobby: 0.2.5
     transitivePeerDependencies:
       - supports-color
@@ -3960,7 +3967,7 @@ snapshots:
     dependencies:
       '@unocss/core': 0.62.3
 
-  '@unocss/vite@0.62.3(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))':
+  '@unocss/vite@0.62.3(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@rollup/pluginutils': 5.1.0(rollup@4.20.0)
@@ -3972,7 +3979,7 @@ snapshots:
       chokidar: 3.6.0
       magic-string: 0.30.11
       tinyglobby: 0.2.5
-      vite: 5.3.5(@types/node@22.5.2)
+      vite: 5.4.3(@types/node@22.5.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -4195,8 +4202,8 @@ snapshots:
       tsconfck: 3.1.1(typescript@5.5.4)
       unist-util-visit: 5.0.0
       vfile: 6.0.2
-      vite: 5.3.5(@types/node@22.5.2)
-      vitefu: 0.2.5(vite@5.3.5(@types/node@22.5.2))
+      vite: 5.4.3(@types/node@22.5.2)
+      vitefu: 0.2.5(vite@5.4.3(@types/node@22.5.2))
       which-pm: 3.0.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -4208,6 +4215,7 @@ snapshots:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -4268,9 +4276,9 @@ snapshots:
     dependencies:
       run-applescript: 5.0.0
 
-  bundle-require@5.0.0(esbuild@0.21.5):
+  bundle-require@5.0.0(esbuild@0.23.1):
     dependencies:
-      esbuild: 0.21.5
+      esbuild: 0.23.1
       load-tsconfig: 0.2.5
 
   c12@1.11.1:
@@ -4911,9 +4919,9 @@ snapshots:
 
   importx@0.4.4:
     dependencies:
-      bundle-require: 5.0.0(esbuild@0.21.5)
+      bundle-require: 5.0.0(esbuild@0.23.1)
       debug: 4.3.6
-      esbuild: 0.21.5
+      esbuild: 0.23.1
       jiti: 2.0.0-beta.3
       jiti-v1: jiti@1.21.6
       pathe: 1.1.2
@@ -5727,6 +5735,12 @@ snapshots:
       picocolors: 1.0.1
       source-map-js: 1.2.0
 
+  postcss@8.4.45:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.1
+      source-map-js: 1.2.0
+
   preferred-pm@4.0.0:
     dependencies:
       find-up-simple: 1.0.0
@@ -6189,13 +6203,13 @@ snapshots:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
 
-  unocss@0.62.3(postcss@8.4.40)(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2)):
+  unocss@0.62.3(postcss@8.4.45)(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2)):
     dependencies:
-      '@unocss/astro': 0.62.3(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))
+      '@unocss/astro': 0.62.3(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))
       '@unocss/cli': 0.62.3(rollup@4.20.0)
       '@unocss/core': 0.62.3
       '@unocss/extractor-arbitrary-variants': 0.62.3
-      '@unocss/postcss': 0.62.3(postcss@8.4.40)
+      '@unocss/postcss': 0.62.3(postcss@8.4.45)
       '@unocss/preset-attributify': 0.62.3
       '@unocss/preset-icons': 0.62.3
       '@unocss/preset-mini': 0.62.3
@@ -6210,9 +6224,9 @@ snapshots:
       '@unocss/transformer-compile-class': 0.62.3
       '@unocss/transformer-directives': 0.62.3
       '@unocss/transformer-variant-group': 0.62.3
-      '@unocss/vite': 0.62.3(rollup@4.20.0)(vite@5.3.5(@types/node@22.5.2))
+      '@unocss/vite': 0.62.3(rollup@4.20.0)(vite@5.4.3(@types/node@22.5.2))
     optionalDependencies:
-      vite: 5.3.5(@types/node@22.5.2)
+      vite: 5.4.3(@types/node@22.5.2)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -6246,18 +6260,18 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.3.5(@types/node@22.5.2):
+  vite@5.4.3(@types/node@22.5.2):
     dependencies:
       esbuild: 0.21.5
-      postcss: 8.4.40
+      postcss: 8.4.45
       rollup: 4.20.0
     optionalDependencies:
       '@types/node': 22.5.2
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.3.5(@types/node@22.5.2)):
+  vitefu@0.2.5(vite@5.4.3(@types/node@22.5.2)):
     optionalDependencies:
-      vite: 5.3.5(@types/node@22.5.2)
+      vite: 5.4.3(@types/node@22.5.2)
 
   volar-service-css@0.0.59(@volar/language-service@2.4.0-alpha.18):
     dependencies:
