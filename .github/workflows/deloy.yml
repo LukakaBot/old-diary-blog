@@ -62,4 +62,5 @@ jobs:
           repository-name: LukakaBot/lukakabot.github.io
           branch: main # 目标仓库的分支名称
           clean: true
+          clean-exclude: .github
           commit-message: update from Blog
