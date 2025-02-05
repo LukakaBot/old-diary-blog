@@ -37,7 +37,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Astro 默认的构建输出目录
+          folder: ./dist # Astro 默认的构建输出目录
           token: ${{ secrets.MAKIMA_BOT_TOKEN }}
           branch: build # 目标仓库的分支名称
           target-folder: /dist
