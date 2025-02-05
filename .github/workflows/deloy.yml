@@ -42,25 +42,50 @@ permissions:
 #         with:
 #           token: ${{ secrets.MAKIMA_BOT_TOKEN }}
 
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+
+#       - name: Install and Build
+#         uses: withastro/action@v2
+#         with:
+#           package-manager: pnpm@latest
+
+#       - name: Deploy to GitHub Pages repo
+#         uses: JamesIves/github-pages-deploy-action@v4
+#         with:
+#           folder: dist # Astro 默认的构建输出目录
+#           token: ${{ secrets.MAKIMA_BOT_TOKEN }}
+#           repository-name: LukakaBot/lukakabot.github.io
+#           branch: build # 目标仓库的分支名称
+#           target-folder: /dist
+#           clean: true
+#           commit-message: update from Diary
+
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Install and Build
         uses: withastro/action@v2
         with:
+          path: .
           package-manager: pnpm@latest
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages repo
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Astro 默认的构建输出目录
+          folder: dist
           token: ${{ secrets.MAKIMA_BOT_TOKEN }}
-          # repository-name: LukakaBot/lukakabot.github.io
-          branch: build # 目标仓库的分支名称
-          target-folder: /dist
-          clean: true
-          commit-message: update from Diary
+          repository-name: LukakaBot/lukakabot.github.io
+          branch: build
