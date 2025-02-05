@@ -23,6 +23,8 @@ const baseUrl = import.meta.env.VITE_BASE_URL
 
 <LayoutDefault>
   <ListSection title={name}>
+    <!-- <div>{category}</div>
+    <div>123</div> -->
     {posts.map((post) => <ListItem title={post.data.title} href={`${baseUrl}/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
   </ListSection>
 </LayoutDefault>

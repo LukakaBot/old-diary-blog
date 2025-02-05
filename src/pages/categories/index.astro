@@ -8,10 +8,12 @@ const { translate: t } = Astro.locals
 const { category_map } = Astro.locals.config;
 
 const categories = await getCategories()
+
+const baseUrl = import.meta.env.VITE_BASE_URL
 ---
 
 <LayoutDefault>
   <ListSection title={t('Categories')}>
-    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`/categories/${getPathFromCategory(key, category_map)}`} description={t('categories_count', value.length)} />)}
+    {Array.from(categories).map(([key, value]) => <ListItem title={key} href={`${baseUrl}/categories/${getPathFromCategory(key, category_map)}`} description={t('categories_count', value.length)} />)}
   </ListSection>
 </LayoutDefault>

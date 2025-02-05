@@ -15,6 +15,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
+
+const baseUrl = import.meta.env.VITE_BASE_URL
+
+function getUrl(path?: string) {
+  return `${baseUrl}${path}`
+}
 ---
 
 <LayoutDefault>
@@ -30,10 +36,10 @@ const { page } = Astro.props
     <Pagination
       showLeft={Boolean(page.url.prev)}
       leftTitle={t('prev')}
-      leftUrl={page.url.prev}
+      leftUrl={getUrl(page.url.prev)}
       showRight={Boolean(page.url.next)}
       rightTitle={t('next')}
-      rightUrl={page.url.next}
+      rightUrl={getUrl(page.url.next)}
       currentPage={page.currentPage}
       totalPage={page.lastPage}
     />

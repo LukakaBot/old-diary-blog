@@ -11,7 +11,7 @@ const { id, data, slug } = Astro.props.post
 const { comments } = Astro.locals.config
 const baseUrl = import.meta.env.VITE_BASE_URL
 
-const path = `${baseUrl}/posts/${slug}`
+const path = `/posts/${slug}`
 const url = `${Astro.site?.href}${path}`
 
 let commentService = ''

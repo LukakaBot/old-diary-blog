@@ -70,3 +70,12 @@ interface Giscus {
   lang: import('giscus').AvailableLanguage;
   loading: import('giscus').Loading;
 }
+
+
+interface ImportMetaEnv {
+  readonly VITE_BASE_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}

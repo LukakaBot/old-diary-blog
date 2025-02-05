@@ -7,11 +7,13 @@ import Pagination from '~/components/Pagination.astro'
 const posts = (await getPosts()).slice(0, 5)
 
 const { translate: t } = Astro.locals
-
+const baseUrl = import.meta.env.VITE_BASE_URL
 ---
 
 <LayoutDefault>
   <section contain-layout un-flex="~ col gap-7.5">
+    <div>{Astro.site}</div>
+    <div>{Astro.site?.href}</div>
     {
       posts.map((post) => (
         <Post post={post}>
@@ -19,6 +21,6 @@ const { translate: t } = Astro.locals
         </Post>
       ))
     }
-    <Pagination showLeft={false} showPageCount={false} rightTitle={t('all_posts')} rightUrl={'posts/page/1'} />
+    <Pagination showLeft={false} showPageCount={false} rightTitle={t('all_posts')} rightUrl={`${baseUrl}/posts/page/1`} />
   </section>
 </LayoutDefault>
