@@ -1,4 +1,4 @@
-name: Diary CI
+name: Diary Blog CI
 
 on:
   push:
@@ -85,7 +85,9 @@ jobs:
       - name: Deploy to GitHub Pages repo
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: dist # Astro 默认的构建输出目录
           token: ${{ secrets.MAKIMA_BOT_TOKEN }}
-          repository-name: LukakaBot/lukakabot.github.io
-          branch: build
+          branch: build # 目标仓库的分支名称
+          target-folder: /dist
+          clean: true
+          commit-message: update from Diary Blog
