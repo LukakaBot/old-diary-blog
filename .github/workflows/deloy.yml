@@ -1,19 +1,16 @@
 name: Diary Blog CI
 
-
 on:
   push:
     branches: [main]
   # 允许你在 GitHub 上的 Actions 标签中手动触发此“工作流程”
   workflow_dispatch:
 
-
 # 允许 job 克隆 repo 并创建一个 page deployment
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 jobs:
   build:
@@ -35,15 +32,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          folder: ./dist # Astro 默认的构建输出目录
-          token: ${{ secrets.MAKIMA_BOT_TOKEN }}
-          branch: build # 目标仓库的分支名称
-          target-folder: /dist
-          clean: true
-          commit-message: update from Diary Blog
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4
-      #   with:
-      #     token: ${{ secrets.MAKIMA_BOT_TOKEN}}
+          token: ${{ secrets.MAKIMA_BOT_TOKEN}}
