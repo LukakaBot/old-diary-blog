@@ -65,7 +65,6 @@ permissions:
 #           clean: true
 #           commit-message: update from Diary
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -81,13 +80,22 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages repo
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #         folder: dist # Astro 默认的构建输出目录
+  #         token: ${{ secrets.MAKIMA_BOT_TOKEN }}
+  #         branch: build # 目标仓库的分支名称
+  #         target-folder: /dist
+  #         clean: true
+  #         commit-message: update from Diary Blog
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages repo
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          folder: dist # Astro 默认的构建输出目录
-          token: ${{ secrets.MAKIMA_BOT_TOKEN }}
-          branch: build # 目标仓库的分支名称
-          target-folder: /dist
-          clean: true
-          commit-message: update from Diary Blog
+          token: ${{ secrets.MAKIMA_BOT_TOKEN}}
