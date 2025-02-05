@@ -1,3 +1,5 @@
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 export const THEME_CONFIG: App.Locals['config'] = {
   /** blog title */
   title: "活版印字",
@@ -6,7 +8,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   /** website description */
   desc: "Rediscory the beauty of typography",
   /** your deployed domain */
-  website: "https://lukakabot.github.io/diary-blog",
+  website: "https://lukakabot.github.io",
   /** your locale */
   locale: "en-us",
   /** theme style */
@@ -38,19 +40,19 @@ export const THEME_CONFIG: App.Locals['config'] = {
   navs: [
     {
       name: "Posts",
-      href: "/posts/page/1",
+      href: `${baseUrl}/posts/page/1`,
     },
     {
       name: "Archive",
-      href: "/archive",
+      href: `${baseUrl}/archive`,
     },
     {
       name: "Categories",
-      href: "/categories"
+      href: `${baseUrl}/categories`
     },
     {
       name: "About",
-      href: "/about",
+      href: `${baseUrl}/about`,
     },
   ],
   /** your category name mapping, which the `path` will be shown in the url */

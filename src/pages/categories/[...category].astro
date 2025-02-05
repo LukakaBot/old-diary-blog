@@ -18,11 +18,11 @@ export async function getStaticPaths() {
 
 const { posts } = Astro.props
 const { category, name } = Astro.params
-
+const baseUrl = import.meta.env.VITE_BASE_URL
 ---
 
 <LayoutDefault>
   <ListSection title={name}>
-    {posts.map((post) => <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
+    {posts.map((post) => <ListItem title={post.data.title} href={`${baseUrl}/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />)}
   </ListSection>
 </LayoutDefault>

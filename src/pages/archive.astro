@@ -16,6 +16,7 @@ posts.forEach((post: Post) => {
   postByYear.get(year)!.push(post)
 })
 
+const baseUrl = import.meta.env.VITE_BASE_URL
 ---
 
 <LayoutDefault>
@@ -24,7 +25,7 @@ posts.forEach((post: Post) => {
       Array.from(postByYear.entries()).map(([year, posts]) => (
         <ListSection title={year}>
           {posts.map((post) => (
-            <ListItem title={post.data.title} href={`/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
+            <ListItem title={post.data.title} href={`${baseUrl}/posts/${post.slug}/`} description={formatDate(post.data.pubDate)} />
           ))}
         </ListSection>
       ))
